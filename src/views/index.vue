@@ -1,5 +1,3 @@
-<template>
-  <div>hjkh</div>
-</template>
+<template> </template>
 <script setup></script>
 <style scoped></style>
