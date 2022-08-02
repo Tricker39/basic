@@ -3,7 +3,7 @@
     <div class="head">
       <div
         class="item"
-        :class="{ active: item.key == key }"
+        :class="{ active: item.key == activeKey }"
         v-for="item in tabs"
         @click="
           (e) => {
@@ -15,23 +15,38 @@
       </div>
       <div class="head-bar" :style="{ maxWidth: `${maxWidth}px`, left: `${left}px` }"></div>
     </div>
-    <div class="body"></div>
+    <div class="body">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script setup>
-  import { ref } from 'vue';
-  defineProps({
+  import { ref, onMounted } from 'vue';
+  const props = defineProps({
     tabs: Array,
+    activeKey: String,
   });
+  const emits = defineEmits(['update:activeKey']);
   const maxWidth = ref(0);
   const left = ref(0);
-  const key = ref('1');
+  onMounted(() => {
+    const index = props.tabs.findIndex((item) => item.key == props.activeKey);
+    if (index > -1) {
+      try {
+        const itemDom = document.querySelectorAll(`.tabs .head .item`)[index];
+        maxWidth.value = itemDom.offsetWidth;
+        left.value = itemDom.offsetLeft;
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+  });
+
   const _bindSelect = (e, item) => {
     e.stopPropagation();
-    console.log(' ', e);
     maxWidth.value = e.currentTarget.offsetWidth;
     left.value = e.currentTarget.offsetLeft;
-    key.value = item.key;
+    emits('update:activeKey', item.key);
   };
 </script>
 <style scoped>

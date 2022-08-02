@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <tabs-dom :tabs="tabs" v-model:key="key"></tabs-dom>
-  </div>
+  <tabs-dom :tabs="tabs" v-model:activeKey="key"> {{ key }}</tabs-dom>
 </template>
 <script setup>
   import { ref } from 'vue';
