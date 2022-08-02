@@ -1,7 +1,12 @@
 <template>
   <div class="content">
     <div class="left">
-      <div class="item" :class="{ active: item.path == routePath }" v-for="item in basicRoutes">
+      <div
+        class="item"
+        :class="{ active: item.path == routePath }"
+        v-for="item in basicRoutes"
+        @click="_bindGoPage(item)"
+      >
         {{ item.meta.title }}</div
       >
     </div>
@@ -9,9 +14,15 @@
   </div>
 </template>
 <script setup>
+  import { computed } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
   import { basicRoutes } from '@/routers/routes.js';
-  import { useRoute } from 'vue-router';
-  const routePath = useRoute().path;
+
+  const router = useRouter();
+  const routePath = computed(() => useRoute().path);
+  const _bindGoPage = (item) => {
+    router.push({ path: item.path });
+  };
 </script>
 <style>
   * {
@@ -26,11 +37,12 @@
     height: 100vh;
   }
   .left {
-    width: 160px;
+    width: 192px;
     background: #18181c;
   }
   .left .item {
-    padding: 10px;
+    padding: 0 16px;
+    line-height: 40px;
     font-size: 14px;
     color: #fff;
     cursor: pointer;
