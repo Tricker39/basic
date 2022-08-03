@@ -7,8 +7,8 @@
         v-for="item in basicRoutes"
         @click="_bindGoPage(item)"
       >
-        {{ item.meta.title }}</div
-      >
+        <icon :type="item.meta.icon" class="icon" :size="16" /> {{ item.meta.title }}
+      </div>
     </div>
     <div class="right"><router-view></router-view></div>
   </div>
@@ -35,6 +35,12 @@
   body {
     background-color: #101014;
   }
+  code {
+    display: block;
+    padding: 16px;
+    font-size: 16px;
+    font-family: 'Operator Mono Lig Light', 'IBM Plex Mono', 'Dank Mono', monospace;
+  }
   .content {
     display: flex;
     height: 100vh;
@@ -44,8 +50,10 @@
     background: #18181c;
   }
   .left .item {
+    display: flex;
+    align-items: center;
     padding: 0 16px;
-    line-height: 40px;
+    height: 40px;
     font-size: 14px;
     color: #fff;
     cursor: pointer;
@@ -59,6 +67,9 @@
     font-weight: bold;
     color: #63e2b7;
     background: #252529;
+  }
+  .left .item .icon {
+    margin-right: 8px;
   }
   .right {
     flex: 1;

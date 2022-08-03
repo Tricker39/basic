@@ -1,5 +1,5 @@
 <template>
-  <span ref="iconEl"></span>
+  <div ref="iconEl" class="icon"></div>
 </template>
 <script setup>
   import { IconPark } from '@icon-park/vue-next/es/all';
@@ -28,4 +28,13 @@
 
   onMounted(update);
 </script>
-<style lang="less"></style>
+<style scoped>
+  .icon {
+    width: auto;
+    height: auto;
+  }
+  .icon :deep(.i-icon) {
+    display: flex;
+    align-items: center;
+  }
+</style>

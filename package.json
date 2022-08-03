@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
     "@icon-park/vue-next": "^1.4.2",
+    "highlight.js": "11.0.1",
     "vue": "^3.2.25",
     "vue-router": "4"
   },

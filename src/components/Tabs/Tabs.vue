@@ -13,7 +13,14 @@
       >
         {{ item.title }}
       </div>
-      <div class="head-bar" :style="{ maxWidth: `${maxWidth}px`, left: `${left}px` }"></div>
+      <div
+        class="head-bar"
+        :style="{
+          maxWidth: `${maxWidth}px`,
+          left: `${left}px`,
+          transform: `translateX(${(maxWidth - 30) / 2}px)`,
+        }"
+      ></div>
     </div>
     <div class="body">
       <slot></slot>
@@ -84,5 +91,6 @@
 
   .tabs .body {
     flex: 1;
+    padding: 12px 16px;
   }
 </style>
