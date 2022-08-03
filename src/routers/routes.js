@@ -1,3 +1,4 @@
+import { h } from 'vue';
 const _routes = [
   {
     path: '/',
@@ -6,6 +7,7 @@ const _routes = [
     meta: {
       title: '首页',
       key: 'index',
+      icon: h('span', {}),
     },
   },
   {

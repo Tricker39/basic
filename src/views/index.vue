@@ -1,3 +1,9 @@
-<template><div> 首页</div> </template>
-<script setup></script>
+<template>
+  <div>
+    <icon-icon type="home" />
+  </div>
+</template>
+<script setup>
+  // import
+</script>
 <style scoped></style>

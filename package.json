@@ -8,11 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@icon-park/vue-next": "^1.4.2",
     "vue": "^3.2.25",
     "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
+    "unplugin-vue-components": "^0.21.2",
     "vite": "^2.9.9"
   }
 }
