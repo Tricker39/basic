@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import Components from 'unplugin-vue-components/vite';
 // import AutoImport from 'unplugin-auto-import/vite';
 import { resolve } from 'path';
+import Unocss from 'unocss/vite';
 function pathResolve(dir) {
   return resolve(process.cwd(), '.', dir);
 }
@@ -10,6 +11,7 @@ function pathResolve(dir) {
 export default defineConfig({
   plugins: [
     vue(),
+    Unocss(),
     // AutoImport({}),
     Components({
       // relative paths to the directory to search for components.

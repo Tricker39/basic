@@ -3,7 +3,7 @@
     <div class="left">
       <div class="item" v-for="item in basicRoutes">
         <div class="item-title"
-          ><icon :type="item.meta.icon" class="icon" :size="16" />{{ item.meta.title }}</div
+          ><div :class="['icon', item.meta.icon]"></div>{{ item.meta.title }}</div
         >
         <div class="child">
           <div
@@ -12,7 +12,7 @@
             :class="{ active: subitem.path == routePath }"
             @click="_bindGoPage(subitem)"
           >
-            <icon :type="subitem.meta.icon" class="icon" :size="16" /> {{ subitem.meta.title }}
+            <div :class="['icon', subitem.meta.icon]"></div>{{ subitem.meta.title }}
           </div>
         </div>
       </div>

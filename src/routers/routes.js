@@ -5,7 +5,7 @@ const _routes = [
     meta: {
       title: '首页',
       key: 'index',
-      icon: 'waterfalls-v',
+      icon: 'i-icon-park-outline-waterfalls-v',
     },
     children: [
       {
@@ -15,7 +15,7 @@ const _routes = [
         meta: {
           title: '首页',
           key: 'index',
-          icon: 'home',
+          icon: 'i-icon-park-outline-home',
         },
       },
     ],
@@ -25,7 +25,7 @@ const _routes = [
     meta: {
       title: 'CSS',
       key: 'css',
-      icon: 'waterfalls-v',
+      icon: 'i-icon-park-outline-waterfalls-v',
     },
     children: [
       {
@@ -35,7 +35,7 @@ const _routes = [
         meta: {
           title: '选择器',
           key: 'selector',
-          icon: 'filter',
+          icon: 'i-icon-park-outline-filter',
         },
       },
       {
@@ -45,7 +45,7 @@ const _routes = [
         meta: {
           title: '布局',
           key: 'layout',
-          icon: 'page',
+          icon: 'i-icon-park-outline-page',
         },
       },
     ],

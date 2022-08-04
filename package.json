@@ -9,13 +9,14 @@
   },
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
-    "@icon-park/vue-next": "^1.4.2",
     "highlight.js": "11.0.1",
     "vue": "^3.2.25",
     "vue-router": "4"
   },
   "devDependencies": {
+    "@unocss/preset-icons": "^0.45.3",
     "@vitejs/plugin-vue": "^2.3.3",
+    "unocss": "^0.45.3",
     "unplugin-auto-import": "^0.10.3",
     "unplugin-vue-components": "^0.21.2",
     "vite": "^2.9.9"
