@@ -7,28 +7,51 @@ const _routes = [
     meta: {
       title: '首页',
       key: 'index',
-      icon: 'home',
+      icon: 'waterfalls-v',
     },
+    children: [
+      {
+        path: '/index',
+        name: 'index',
+        component: () => import('@/views/index.vue'),
+        meta: {
+          title: '首页',
+          key: 'index',
+          icon: 'home',
+        },
+      },
+    ],
   },
   {
-    path: '/selector',
-    name: 'selector',
-    component: () => import('@/views/selector/index.vue'),
+    path: '/css',
+    name: 'css',
     meta: {
-      title: '选择器',
-      key: 'selector',
-      icon: 'filter',
+      title: 'CSS',
+      key: 'css',
+      icon: 'waterfalls-v',
     },
-  },
-  {
-    path: '/layout',
-    name: 'layout',
-    component: () => import('@/views/layout/index.vue'),
-    meta: {
-      title: '布局',
-      key: 'layout',
-      icon: 'page',
-    },
+    children: [
+      {
+        path: '/selector',
+        name: 'selector',
+        component: () => import('@/views/css/selector/index.vue'),
+        meta: {
+          title: '选择器',
+          key: 'selector',
+          icon: 'filter',
+        },
+      },
+      {
+        path: '/layout',
+        name: 'layout',
+        component: () => import('@/views/css/layout/index.vue'),
+        meta: {
+          title: '布局',
+          key: 'layout',
+          icon: 'page',
+        },
+      },
+    ],
   },
 ];
 

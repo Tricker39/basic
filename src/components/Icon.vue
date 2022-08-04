@@ -30,6 +30,7 @@
 </script>
 <style scoped>
   .icon {
+    display: inline-block;
     width: auto;
     height: auto;
   }

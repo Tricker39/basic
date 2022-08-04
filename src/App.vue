@@ -1,13 +1,20 @@
 <template>
-  <div class="content">
+  <div class="page-content">
     <div class="left">
-      <div
-        class="item"
-        :class="{ active: item.path == routePath }"
-        v-for="item in basicRoutes"
-        @click="_bindGoPage(item)"
-      >
-        <icon :type="item.meta.icon" class="icon" :size="16" /> {{ item.meta.title }}
+      <div class="item" v-for="item in basicRoutes">
+        <div class="item-title"
+          ><icon :type="item.meta.icon" class="icon" :size="16" />{{ item.meta.title }}</div
+        >
+        <div class="child">
+          <div
+            v-for="subitem in item.children"
+            class="child-item"
+            :class="{ active: subitem.path == routePath }"
+            @click="_bindGoPage(subitem)"
+          >
+            <icon :type="subitem.meta.icon" class="icon" :size="16" /> {{ subitem.meta.title }}
+          </div>
+        </div>
       </div>
     </div>
     <div class="right"><router-view></router-view></div>
@@ -35,13 +42,18 @@
   body {
     background-color: #101014;
   }
+  pre {
+    height: 100%;
+  }
   code {
+    box-sizing: border-box;
     display: block;
     padding: 16px;
+    height: 100%;
     font-size: 16px;
     font-family: 'Operator Mono Lig Light', 'IBM Plex Mono', 'Dank Mono', monospace;
   }
-  .content {
+  .page-content {
     display: flex;
     height: 100vh;
   }
@@ -49,16 +61,14 @@
     width: 192px;
     background: #18181c;
   }
-  .left .item {
-    display: flex;
+  .left > .item {
     align-items: center;
     padding: 0 16px;
-    height: 40px;
     font-size: 14px;
     color: #fff;
     cursor: pointer;
   }
-  .left .item:hover {
+  /* .left .item:hover {
     font-weight: bold;
     color: #63e2b7;
     background: #252529;
@@ -67,11 +77,35 @@
     font-weight: bold;
     color: #63e2b7;
     background: #252529;
-  }
+  } */
   .left .item .icon {
     margin-right: 8px;
   }
+  .left .item .item-title {
+    display: flex;
+    align-items: center;
+    line-height: 32px;
+    color: #868693;
+  }
+  .left .item .child .child-item {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    line-height: 40px;
+    color: #868693;
+  }
+  .left .item .child .child-item:hover {
+    font-weight: bold;
+    color: #63e2b7;
+    background: #252529;
+  }
+  .left .item .child .child-item.active {
+    font-weight: bold;
+    color: #63e2b7;
+    background: #252529;
+  }
   .right {
     flex: 1;
+    overflow: auto;
   }
 </style>
