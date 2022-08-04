@@ -16,6 +16,9 @@ export default defineConfig({
     presetAttributify(),
     presetIcons({
       cdn: 'https://esm.sh/',
+      // collections: {
+      //   'icon-park-outline': () => import('@iconify-json/icon-park-outline').then((i) => i.icons),
+      // },
       scale: 1.2,
       warn: true,
     }),

@@ -2,7 +2,7 @@
   <div class="i-icon-park-outline-a-cane"></div>
   <div class="i-icon-park-outline-home"></div>
   <div :class="icon"></div>
-  <div @click="_bindSwitch">切换</div>
+  <div @click="_bindSwitch" p="t-10px">切换</div>
 </template>
 <script setup>
   import { ref } from 'vue';
