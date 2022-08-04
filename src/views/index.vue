@@ -1,8 +1,9 @@
 <template>
   <div class="i-icon-park-outline-a-cane"></div>
-  <div class="i-icon-park-outline-home"></div>
+  <div class="i-icon-park-outline-page"></div>
+  <div class="i-icon-park-outline-like" display="none"></div>
   <div :class="icon"></div>
-  <div @click="_bindSwitch" p="t-10px">切换</div>
+  <div @click="_bindSwitch" p="t-10px" text="blue">切换</div>
 </template>
 <script setup>
   import { ref } from 'vue';

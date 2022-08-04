@@ -1,7 +1,7 @@
 <template>
   <div class="page-content">
     <div class="left">
-      <div class="item" v-for="item in basicRoutes">
+      <div class="item" v-for="item in routes">
         <div class="item-title"
           ><div :class="['icon', item.meta.icon]"></div>{{ item.meta.title }}</div
         >
@@ -27,6 +27,8 @@
 
   const router = useRouter();
   const routePath = computed(() => useRoute().path);
+  const routes = computed(() => basicRoutes);
+  console.log(router.getRoutes());
   const _bindGoPage = (item) => {
     router.push({ path: item.path });
   };
