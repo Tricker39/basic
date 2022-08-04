@@ -1,7 +1,5 @@
-import { h } from 'vue';
 const _routes = [
   {
-    path: '/',
     name: 'home',
     component: () => import('@/views/index.vue'),
     meta: {
@@ -11,7 +9,7 @@ const _routes = [
     },
     children: [
       {
-        path: '/index',
+        path: '/',
         name: 'index',
         component: () => import('@/views/index.vue'),
         meta: {
@@ -23,7 +21,6 @@ const _routes = [
     ],
   },
   {
-    path: '/css',
     name: 'css',
     meta: {
       title: 'CSS',
