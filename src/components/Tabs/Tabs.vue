@@ -76,7 +76,7 @@
     cursor: pointer;
   }
   .item.active {
-    color: #63e2b7;
+    color: var(--primary-color);
   }
   .head .head-bar {
     position: absolute;
@@ -86,7 +86,7 @@
     height: 2px;
     transform: translateX(calc(50% + 15px));
     transition: left 0.3s ease-in-out;
-    background: #63e2b7;
+    background: var(--primary-color);
   }
 
   .tabs .body {

@@ -50,6 +50,15 @@ const _routes = [
       },
     ],
   },
+  {
+    name: 'js',
+    meta: {
+      title: 'JavaScript',
+      key: 'js',
+      icon: 'i-icon-park-outline-waterfalls-v',
+    },
+    children: [],
+  },
 ];
 
 export const basicRoutes = [..._routes];
