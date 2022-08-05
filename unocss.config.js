@@ -15,7 +15,10 @@ export default defineConfig({
     presetUno(),
     presetAttributify(),
     presetIcons({
-      cdn: 'https://esm.sh/',
+      // cdn: 'https://esm.sh/', // 存在网络问题可以尝试国内其他cdn
+      collections: {
+        'icon-park-outline': () => import('@iconify-json/icon-park-outline').then((i) => i.icons),
+      },
       scale: 1.2,
       warn: true,
     }),

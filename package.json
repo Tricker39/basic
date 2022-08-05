@@ -15,6 +15,7 @@
     "vue-router": "4"
   },
   "devDependencies": {
+    "@iconify-json/icon-park-outline": "^1.1.5",
     "@unocss/preset-icons": "^0.45.3",
     "@vitejs/plugin-vue": "^2.3.3",
     "unocss": "^0.45.3",

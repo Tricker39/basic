@@ -1,9 +1,10 @@
 const _routes = [
   {
+    path: '/index',
     name: 'home',
     component: () => import('@/views/index.vue'),
     meta: {
-      title: '首页',
+      title: '开始',
       key: 'index',
       icon: 'i-icon-park-outline-waterfalls-v',
     },
@@ -21,6 +22,7 @@ const _routes = [
     ],
   },
   {
+    path: '/css',
     name: 'css',
     meta: {
       title: 'CSS',
