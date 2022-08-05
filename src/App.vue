@@ -1,15 +1,15 @@
 <template>
   <div class="page-content">
-    <div class="left">
-      <div class="item" v-for="item in routePath">
+    <div class="left" un-cloak>
+      <div class="item" v-for="item in routes" un-cloak>
         <div class="item-title"
-          ><div :class="['icon', item.meta.icon]"></div>{{ item.meta.title }}</div
-        >
+          ><div :class="['icon', item.meta.icon]"></div>{{ item.meta.title }}
+        </div>
         <div class="child">
           <div
             v-for="subitem in item.children"
             class="child-item"
-            :class="{ active: subitem.path == routePath }"
+            :class="{ active: subitem.path == currentRoute.path }"
             @click="_bindGoPage(subitem)"
           >
             <div :class="['icon', subitem.meta.icon]"></div>{{ subitem.meta.title }}
@@ -17,24 +17,34 @@
         </div>
       </div>
     </div>
-    <div class="right"><router-view></router-view></div>
+    <div class="right">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script setup>
-  import { ref, onMounted } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { ref, onMounted, computed } from 'vue';
+  import { useRouter, useRoute } from 'vue-router';
   import axios from 'axios';
 
   const router = useRouter();
-  const routePath = ref([]);
+  const currentRoute = computed(() => useRoute());
+  const routes = ref([]);
+  const icons = ref([]);
   onMounted(async () => {
     axios
       .get('https://www.fastmock.site/mock/6d96d8787248021f989c4bf9615ff464/basic/getMenus')
       .then((res) => {
-        console.log('res', res);
-        routePath.value = res.data.result.menus;
+        routes.value = res.data.result.menus;
+        _handleIcons(res.data.result.menus);
       });
   });
+  const _handleIcons = (routes) => {
+    routes.map((item) => {
+      item.children && _handleIcons(item.children);
+      icons.value.push(item.meta.icon);
+    });
+  };
   const _bindGoPage = (item) => {
     router.push({ path: item.path });
   };
@@ -107,5 +117,8 @@
   .right {
     flex: 1;
     overflow: auto;
+  }
+  [un-cloak] {
+    display: none;
   }
 </style>

@@ -1,7 +1,7 @@
 import {
   defineConfig,
   presetAttributify,
-  presetIcons,
+  // presetIcons,
   presetTypography,
   presetUno,
   presetWebFonts,
@@ -9,15 +9,24 @@ import {
   transformerVariantGroup,
 } from 'unocss';
 
+import UnocssIcons from '@unocss/preset-icons';
+import icons from './src/assets/js/icons.js';
+
+const safeIcons = [];
+icons.map((icon) => {
+  safeIcons.push(...icon.value);
+});
+
 export default defineConfig({
   shortcuts: [],
   presets: [
     presetUno(),
     presetAttributify(),
-    presetIcons({
+    UnocssIcons({
       // cdn: 'https://esm.sh/', // 存在网络问题可以尝试国内其他cdn
       collections: {
         'icon-park-outline': () => import('@iconify-json/icon-park-outline').then((i) => i.icons),
+        'icon-park-solid': () => import('@iconify-json/icon-park-solid').then((i) => i.icons),
       },
       scale: 1.2,
       warn: true,
@@ -32,5 +41,8 @@ export default defineConfig({
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
-  safelist: 'prose prose-sm m-auto text-left'.split(' '),
+  safelist: [
+    ...safeIcons.map((item) => `i-icon-park-solid-${item}`),
+    ...safeIcons.map((item) => `i-icon-park-outline-${item}`),
+  ],
 });

@@ -1,8 +1,9 @@
 const _routes = [
   {
-    path: '/index',
+    path: '/',
     name: 'home',
-    component: () => import('@/views/index.vue'),
+    // component: () => import('@/views/index.vue'),
+    // redirect: '/index',
     meta: {
       title: '开始',
       key: 'index',
@@ -10,7 +11,7 @@ const _routes = [
     },
     children: [
       {
-        path: '/',
+        path: '/index',
         name: 'index',
         component: () => import('@/views/index.vue'),
         meta: {

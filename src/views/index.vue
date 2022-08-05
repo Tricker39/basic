@@ -1,4 +1,6 @@
 <template>
+  123123
+  <div class="i-icon-park-solid-home"></div>
   <!-- <div class="item" v-for="item in menus">
     <div class="item-title"><div :class="['icon', item.icon]"></div>{{ item.title }}</div>
     <div class="child">
