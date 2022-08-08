@@ -25,26 +25,21 @@
 <script setup>
   import { ref, onMounted, computed } from 'vue';
   import { useRouter, useRoute } from 'vue-router';
-  import axios from 'axios';
+  import { basicRoutes } from '@//routers/routes.js';
+  // import axios from 'axios';
 
   const router = useRouter();
   const currentRoute = computed(() => useRoute());
   const routes = ref([]);
   const icons = ref([]);
   onMounted(async () => {
-    axios
-      .get('https://www.fastmock.site/mock/6d96d8787248021f989c4bf9615ff464/basic/getMenus')
-      .then((res) => {
-        routes.value = res.data.result.menus;
-        _handleIcons(res.data.result.menus);
-      });
+    // axios
+    //   .get('https://www.fastmock.site/mock/6d96d8787248021f989c4bf9615ff464/basic/getMenus')
+    //   .then((res) => {
+    //     routes.value = res.data.result.menus;
+    //   });
+    routes.value = basicRoutes;
   });
-  const _handleIcons = (routes) => {
-    routes.map((item) => {
-      item.children && _handleIcons(item.children);
-      icons.value.push(item.meta.icon);
-    });
-  };
   const _bindGoPage = (item) => {
     router.push({ path: item.path });
   };

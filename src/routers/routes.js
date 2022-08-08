@@ -54,6 +54,38 @@ const _routes = [
     ],
   },
   {
+    name: 'page',
+    meta: {
+      title: '页面',
+      key: 'page',
+      icon: 'i-icon-park-outline-waterfalls-v',
+    },
+    children: [
+      {
+        path: '/page',
+        name: 'page',
+        component: () => import('@/views/page/index.vue'),
+        meta: {
+          title: 'ui 界面',
+          key: 'ui',
+          icon: 'i-icon-park-outline-like',
+        },
+        children: [
+          {
+            path: '/page/uiChina',
+            name: 'uiChina',
+            component: () => import('@/views/page/uiCn/cover.vue'),
+            meta: {
+              title: 'UI 中国',
+              key: 'uiChina',
+              image: '/assets/page/uiChina/cover.png',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
     name: 'js',
     meta: {
       title: 'JavaScript',

@@ -21,7 +21,10 @@ export default defineConfig({
   shortcuts: [],
   presets: [
     presetUno(),
-    presetAttributify(),
+    presetAttributify({
+      prefix: 'w:',
+      prefixedOnly: true, // <--
+    }),
     UnocssIcons({
       // cdn: 'https://esm.sh/', // 存在网络问题可以尝试国内其他cdn
       collections: {
@@ -42,7 +45,11 @@ export default defineConfig({
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: [
-    ...safeIcons.map((item) => `i-icon-park-solid-${item}`),
-    ...safeIcons.map((item) => `i-icon-park-outline-${item}`),
+    // ...safeIcons.map((item) => `i-icon-park-solid-${item}`),
+    // ...safeIcons.map((item) => `i-icon-park-outline-${item}`),
+    'i-icon-park-outline-home',
+    'i-icon-park-outline-page',
+    'i-icon-park-outline-filter',
+    'i-icon-park-outline-waterfalls-v',
   ],
 });
