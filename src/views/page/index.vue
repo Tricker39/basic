@@ -2,10 +2,16 @@
   <div class="content">
     <waterfall :list="routes" row-key="name">
       <template #item="{ item, url, index }">
-        <div class="card">
-          <lazy-img :url="item.meta.image" />
+        <div
+          class="card"
+          w:cursor="pointer"
+          :imgSelector="item.meta.image"
+          :hasAroundGutter="true"
+          :delay="400"
+        >
+          <lazy-img :url="item.meta.image" class="waterfall-image" />
           <!-- <img :src="item.meta.image" /> -->
-          <p class="text">这是内容</p>
+          <p class="text">{{ item.meta.title }}</p>
         </div>
       </template>
     </waterfall>
@@ -33,5 +39,16 @@
 <style scoped>
   .content {
     height: 100%;
+  }
+  .content :deep(.waterfall-list) {
+    background: none;
+  }
+  .card .text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), transparent);
   }
 </style>
