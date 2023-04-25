@@ -1,6 +1,7 @@
 <template>
   123123
   <div class="i-icon-park-solid-home"></div>
+  <div :class="'i-icon-park-solid-home'"></div>
   <!-- <div class="item" v-for="item in menus">
     <div class="item-title"><div :class="['icon', item.icon]"></div>{{ item.title }}</div>
     <div class="child">
@@ -14,9 +15,17 @@
       </div>
     </div>
   </div> -->
+  <div :class="'i-icon-park-outline-acoustic'"></div>
+  <div class="i-icon-park-outline-ad-product"></div>
+  <div :class="icon"></div>
 </template>
 <script setup>
-  // import { ref, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue';
+  const icon = ref('');
+
+  setTimeout(() => {
+    icon.value = 'i-icon-park-outline-accept-email';
+  }, 3 * 1000);
   // import { basicRoutes } from '@/routers/routes.js';
   // const icons = [
   //   'i-icon-park-outline-home',

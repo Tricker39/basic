@@ -45,11 +45,11 @@ export default defineConfig({
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: [
-    ...safeIcons.map((item) => `i-icon-park-solid-${item}`),
-    ...safeIcons.map((item) => `i-icon-park-outline-${item}`),
-    'i-icon-park-outline-home',
-    'i-icon-park-outline-page',
-    'i-icon-park-outline-filter',
-    'i-icon-park-outline-waterfalls-v',
+    // ...safeIcons.map((item) => `i-icon-park-solid-${item}`),
+    // ...safeIcons.map((item) => `i-icon-park-outline-${item}`),
+    // 'i-icon-park-outline-home',
+    // 'i-icon-park-outline-page',
+    // 'i-icon-park-outline-filter',
+    // 'i-icon-park-outline-waterfalls-v',
   ],
 });
